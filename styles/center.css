@@ -53,7 +53,7 @@ a {
     right: 0;
     background-color: rgba(10, 31, 68, 0.95);
     backdrop-filter: blur(10px);
-    padding: 10px 40px;
+    padding: 15px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -313,8 +313,8 @@ a {
 .hero {
     position: relative;
     width: 100%;
-    height: 65vh;
-    background-image: url('../images/2017_winter_zins2_photo1.gif');
+    height: 50vh;
+    background-image: url('images/2017_winter_zins2_photo1.gif');
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
@@ -326,7 +326,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(10, 31, 68, 0.6) 0%, rgba(10, 31, 68, 0.4) 100%);
+    background: linear-gradient(135deg, rgba(10, 31, 68, 0.7) 0%, rgba(10, 31, 68, 0.5) 100%);
 }
 
 .hero-content {
@@ -355,7 +355,7 @@ a {
 @media (max-width: 768px) {
     .hero {
         background-position: 73% center;
-        height: 50vh;
+        height: 40vh;
     }
 
     .hero-content {
@@ -364,6 +364,368 @@ a {
 
     .hero-text h1 {
         font-size: 32px;
+    }
+}
+
+/* ===== Centers Section ===== */
+.centers-section {
+    padding: 100px 0 120px;
+    background: linear-gradient(to bottom, var(--white) 0%, var(--off-white) 50%, var(--white) 100%);
+    overflow: hidden;
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 100px;
+}
+
+.section-intro h2 {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    color: var(--navy-blue);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-intro h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+}
+
+.section-intro p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-gray);
+    margin-top: 30px;
+}
+
+/* ===== Centers Grid ===== */
+.centers-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+    padding: 0 40px;
+}
+
+/* ===== Center Card ===== */
+.center-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    min-height: 500px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.center-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Alternate layout - odd cards (image left, text right) */
+.center-card:nth-child(odd) {
+    flex-direction: row;
+}
+
+/* Alternate layout - even cards (text left, image right) */
+.center-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* ===== Center Image ===== */
+.center-image {
+    position: relative;
+    flex: 0 0 500px;
+    height: 450px;
+    transition: all 0.6s ease;
+}
+
+/* Tilt images differently based on position */
+.center-card:nth-child(odd) .center-image {
+    transform: rotate(-4deg);
+}
+
+.center-card:nth-child(even) .center-image {
+    transform: rotate(4deg);
+}
+
+.center-card:hover .center-image {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.center-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 25px 60px rgba(10, 31, 68, 0.25);
+    transition: all 0.6s ease;
+    border: 8px solid var(--white);
+}
+
+.center-card:hover .center-image img {
+    box-shadow: 0 35px 80px rgba(212, 175, 55, 0.4);
+    border-color: var(--gold);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(10, 31, 68, 0.1) 0%, 
+        rgba(212, 175, 55, 0.2) 100%
+    );
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.center-card:hover .image-overlay {
+    opacity: 1;
+}
+
+/* Decorative elements behind images */
+.center-image::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    border-radius: 8px;
+    z-index: -1;
+    transition: all 0.6s ease;
+}
+
+.center-card:nth-child(odd) .center-image::before {
+    top: -20px;
+    left: -20px;
+}
+
+.center-card:nth-child(even) .center-image::before {
+    top: -20px;
+    right: -20px;
+}
+
+.center-card:hover .center-image::before {
+    top: -30px;
+}
+
+.center-card:nth-child(odd):hover .center-image::before {
+    left: -30px;
+}
+
+.center-card:nth-child(even):hover .center-image::before {
+    right: -30px;
+}
+
+/* ===== Center Content ===== */
+.center-content {
+    flex: 1;
+    position: relative;
+    padding: 40px 0;
+}
+
+/* Decorative number/badge */
+.center-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 80px;
+    height: 6px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+    transition: width 0.4s ease;
+}
+
+.center-card:nth-child(odd) .center-content::before {
+    left: 0;
+}
+
+.center-card:nth-child(even) .center-content::before {
+    right: 0;
+}
+
+.center-card:hover .center-content::before {
+    width: 120px;
+}
+
+.center-content h3 {
+    font-family: var(--font-heading);
+    font-size: 38px;
+    color: var(--navy-blue);
+    margin-bottom: 25px;
+    margin-top: 20px;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+}
+
+.center-card:hover .center-content h3 {
+    color: var(--gold);
+}
+
+.center-content p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--text-gray);
+    margin-bottom: 20px;
+}
+
+.center-content p:last-of-type {
+    margin-bottom: 35px;
+}
+
+/* ===== Center Link ===== */
+.center-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--white);
+    background-color: var(--navy-blue);
+    padding: 16px 32px;
+    border: 2px solid var(--navy-blue);
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.center-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.center-link:hover::before {
+    left: 0;
+}
+
+.center-link svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.4s ease;
+}
+
+.center-link:hover {
+    border-color: var(--gold);
+    color: var(--navy-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+}
+
+.center-link:hover svg {
+    transform: translate(5px, -5px) rotate(-10deg);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+    .centers-grid {
+        gap: 120px;
+        padding: 0 20px;
+    }
+
+    .center-card {
+        gap: 50px;
+    }
+
+    .center-image {
+        flex: 0 0 400px;
+        height: 380px;
+    }
+
+    .center-content h3 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .centers-section {
+        padding: 60px 0 80px;
+    }
+
+    .section-intro {
+        margin-bottom: 60px;
+    }
+
+    .section-intro h2 {
+        font-size: 36px;
+    }
+
+    .section-intro p {
+        font-size: 16px;
+    }
+
+    .centers-grid {
+        gap: 80px;
+        padding: 0 20px;
+    }
+
+    .center-card {
+        flex-direction: column !important;
+        gap: 40px;
+        min-height: auto;
+    }
+
+    .center-card:nth-child(odd) .center-image,
+    .center-card:nth-child(even) .center-image {
+        transform: rotate(-2deg);
+    }
+
+    .center-card:hover .center-image {
+        transform: rotate(0deg) scale(1.02);
+    }
+
+    .center-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 450px;
+        height: 320px;
+        margin: 0 auto;
+    }
+
+    .center-image::before {
+        display: none;
+    }
+
+    .center-content {
+        padding: 20px 0;
+    }
+
+    .center-content::before {
+        left: 0 !important;
+        right: auto !important;
+    }
+
+    .center-content h3 {
+        font-size: 28px;
+    }
+
+    .center-link {
+        width: 100%;
+        justify-content: center;
     }
 }
 
@@ -478,7 +840,7 @@ a {
     }
 }
 
-/* ===== UPDATED Scroll to Top Button (Gold & Navy) ===== */
+/* ===== Scroll to Top Button ===== */
 #scrollTopBtn {
     position: fixed;
     bottom: 30px;
@@ -503,7 +865,7 @@ a {
 }
 
 #scrollTopBtn:hover {
-    background-color: var(--gold-light);;
+    background-color: var(--gold-light);
     transform: translateY(-3px);
 }
 
@@ -548,183 +910,5 @@ a {
         bottom: 20px;
         right: 20px;
         opacity: 0.85;
-    }
-}
-
-/* ========================================================
-   CUNY CENTER SPECIFIC STYLES
-   ======================================================== */
-
-.centers-section {
-    padding: 100px 0;
-    background-color: var(--off-white);
-}
-
-/* Center Card Layout */
-.center-card {
-    display: flex;
-    align-items: center;
-    gap: 70px;
-    margin-bottom: 100px;
-}
-
-/* Alternate Layout (Zig-Zag) */
-.center-card.reverse {
-    flex-direction: row-reverse;
-}
-
-.center-content {
-    flex: 1;
-}
-
-.center-content h2 {
-    font-family: var(--font-heading);
-    font-size: 36px;
-    color: var(--navy-blue);
-    margin-bottom: 25px;
-    line-height: 1.2;
-    position: relative;
-    padding-bottom: 20px;
-}
-
-/* Decorative short line under titles */
-.center-content h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background-color: var(--gold);
-}
-
-.center-content p {
-    font-size: 16px;
-    line-height: 1.8;
-    color: var(--text-gray);
-    margin-bottom: 25px;
-    text-align: justify;
-}
-
-/* Link Styling */
-.center-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    color: var(--navy-blue);
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    margin-top: 10px;
-    border-bottom: 2px solid transparent;
-    padding-bottom: 5px;
-}
-
-.center-link svg {
-    width: 18px;
-    height: 18px;
-    transition: transform 0.3s ease;
-}
-
-.center-link:hover {
-    color: var(--gold);
-    border-bottom-color: var(--gold);
-}
-
-.center-link:hover svg {
-    transform: translateX(5px);
-}
-
-/* Image Styling with "Frame" Effect */
-.center-visual {
-    flex: 1;
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-.image-frame {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 500px;
-}
-
-.image-frame img {
-    width: 100%;
-    height: auto;
-    display: block;
-    box-shadow: 0 20px 40px rgba(10, 31, 68, 0.15);
-    border-radius: 4px; /* Slight softening of corners */
-}
-
-/* The Gold Offset Border */
-.image-frame::before {
-    content: '';
-    position: absolute;
-    top: 25px;
-    left: 25px;
-    width: 100%;
-    height: 100%;
-    border: 3px solid var(--gold);
-    z-index: -1;
-    transition: transform 0.4s ease;
-}
-
-.center-card:hover .image-frame::before {
-    transform: translate(10px, 10px);
-}
-
-.center-card.reverse .image-frame::before {
-    left: -25px;
-}
-
-.center-card.reverse:hover .image-frame::before {
-    transform: translate(-10px, 10px);
-}
-
-.divider-line {
-    height: 3px;
-    background-color: rgba(10, 31, 68, 0.1);
-    width: 80%;
-    margin: 0 auto 100px;
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .center-card, 
-    .center-card.reverse {
-        flex-direction: column;
-        gap: 40px;
-        margin-bottom: 80px;
-    }
-
-    .center-content h2 {
-        text-align: center;
-    }
-
-    .center-content h2::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .center-content {
-        text-align: center;
-    }
-    
-    .center-link {
-        justify-content: center;
-    }
-
-    /* Reset frame offsets for mobile so it doesn't overflow screen */
-    .image-frame::before {
-        top: 15px;
-        left: 15px;
-    }
-    
-    .center-card.reverse .image-frame::before {
-        left: 15px;
     }
 }
