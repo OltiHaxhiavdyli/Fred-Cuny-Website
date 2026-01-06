@@ -945,7 +945,7 @@ a {
 /* ===== AWARDS SECTION ===== */
 .awards-section {
     padding: 100px 0 60px;
-    background-color: var(--white); /* White to contrast with Navy timeline */
+    background-color: var(--white);
 }
 
 .section-title {
@@ -1052,7 +1052,6 @@ a {
     position: relative;
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(10, 31, 68, 0.15);
-    /* Gold accent line on the left */
     border-left: 6px solid var(--gold);
 }
 
@@ -1080,7 +1079,7 @@ a {
     flex-shrink: 0;
     width: 60px;
     height: 60px;
-    background-color: rgba(212, 175, 55, 0.2); /* Semi-transparent gold */
+    background-color: rgba(212, 175, 55, 0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1111,7 +1110,7 @@ a {
 
 .wiki-action {
     flex-shrink: 0;
-    z-index: 100000;
+    z-index: 10;
 }
 
 /* Specific Button Style for this section */
@@ -1144,10 +1143,9 @@ a {
 }
 
 .btn-wiki:hover svg {
-    transform: translate(3px, -3px); /* Arrow moves up-right */
+    transform: translate(3px, -3px);
 }
 
-/* Responsive adjustments */
 @media (max-width: 992px) {
     .wiki-cta-card {
         flex-direction: column;
@@ -1180,13 +1178,11 @@ a {
 
 /* Tablets (iPad Portrait) & Small Laptops */
 @media (max-width: 992px) {
-    /* Switch Awards to 2 columns */
     .awards-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 25px;
     }
 
-    /* Stack the Wiki Card contents vertically */
     .wiki-cta-card {
         flex-direction: column;
         text-align: center;
@@ -1216,7 +1212,6 @@ a {
 
 /* Mobile Devices (Phones) */
 @media (max-width: 768px) {
-    /* Switch Awards to 1 single column */
     .awards-grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1228,8 +1223,8 @@ a {
     }
 
     .award-card {
-        max-width: 450px; /* Prevents cards from getting too wide on landscape phones */
-        margin: 0 auto;   /* Centers the card */
+        max-width: 450px;
+        margin: 0 auto;
     }
 
     .wiki-section {
