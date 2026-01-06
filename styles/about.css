@@ -997,7 +997,7 @@ a {
 }
 
 .award-image {
-    height: 200px;
+    height: 400px;
     overflow: hidden;
     border-bottom: 4px solid var(--gold);
 }
