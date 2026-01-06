@@ -1,0 +1,306 @@
+/* ===== Biography Section ===== */
+.biography-section {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.bio-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.bio-text p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--text-gray);
+    margin-bottom: 25px;
+}
+
+.lead-paragraph {
+    font-size: 19px !important;
+    font-weight: 500;
+    color: var(--navy-blue) !important;
+    line-height: 1.8 !important;
+    margin-bottom: 40px !important;
+}
+
+.bio-with-image {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.bio-paragraphs {
+    flex: 1;
+}
+
+.bio-image {
+    width: 320px;
+    flex-shrink: 0;
+}
+
+.bio-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 4px solid var(--gold);
+}
+
+.image-caption {
+    margin-top: 12px;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--text-gray);
+    text-align: center;
+}
+
+.final-paragraph {
+    background-color: rgba(10, 31, 68, 0.03);
+    padding: 25px;
+    border-left: 4px solid var(--gold);
+    border-radius: 4px;
+    margin-top: 40px !important;
+}
+
+@media (max-width: 768px) {
+    .biography-section {
+        padding: 60px 0;
+    }
+
+    .bio-with-image {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .bio-image {
+        width: 100%;
+    }
+}
+
+/* ===== Timeline Section ===== */
+.timeline-section {
+    padding: 120px 0;
+    background: var(--navy-blue-light);
+    position: relative;
+}
+
+.timeline-title {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+}
+
+/* ===== Timeline Container ===== */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* ===== Animated Center Line ===== */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, 
+        var(--gold) 0%, 
+        var(--gold) var(--timeline-progress, 0%), 
+        rgba(212, 175, 55, 0.2) var(--timeline-progress, 0%), 
+        rgba(212, 175, 55, 0.2) 100%
+    );
+    transform: translateX(-50%);
+    transition: --timeline-progress 0.3s ease;
+}
+
+/* ===== Timeline Items ===== */
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.timeline-item.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Left Items ===== */
+.timeline-item.left {
+    justify-content: flex-end;
+    padding-right: calc(50% + 40px);
+}
+
+.timeline-item.left .timeline-content {
+    text-align: right;
+}
+
+.timeline-item.left .timeline-content p {
+    text-align: justify;
+}
+
+
+/* ===== Right Items ===== */
+.timeline-item.right {
+    justify-content: flex-start;
+    padding-left: calc(50% + 40px);
+}
+
+.timeline-item.right .timeline-content {
+    text-align: justify;
+}
+
+/* ===== Timeline Content ===== */
+.timeline-content {
+    background-color: var(--white);
+    padding: 30px 35px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    max-width: 500px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.timeline-item.left .timeline-content::before {
+    right: -12px;
+    border-width: 12px 0 12px 12px;
+    border-color: transparent transparent transparent var(--white);
+}
+
+.timeline-item.right .timeline-content::before {
+    left: -12px;
+    border-width: 12px 12px 12px 0;
+    border-color: transparent var(--white) transparent transparent;
+}
+
+.timeline-content:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    border-color: var(--gold);
+    transform: scale(1.02);
+}
+
+/* ===== Timeline Year ===== */
+.timeline-year {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.timeline-content p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-gray);
+    margin: 0;
+}
+
+/* ===== Timeline Dots ===== */
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--white);
+    border: 4px solid var(--gold);
+    border-radius: 50%;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+}
+
+.timeline-item:hover .timeline-dot {
+    transform: translateX(-50%) scale(1.3);
+    box-shadow: 0 0 0 8px rgba(212, 175, 55, 0.3);
+    background-color: var(--gold);
+}
+
+/* ===== Mobile Timeline ===== */
+@media (max-width: 768px) {
+    .timeline-section {
+        padding: 60px 0;
+    }
+
+    .timeline-title {
+        font-size: 36px;
+        margin-bottom: 50px;
+    }
+
+    .timeline-line {
+        left: 30px;
+    }
+
+    .timeline-item {
+        margin-bottom: 40px;
+    }
+
+    .timeline-item.left,
+    .timeline-item.right {
+        justify-content: flex-start;
+        padding-left: 70px;
+        padding-right: 0;
+    }
+
+    .timeline-item.left .timeline-content,
+    .timeline-item.right .timeline-content {
+        text-align: left;
+    }
+
+    .timeline-item.left .timeline-content::before,
+    .timeline-item.right .timeline-content::before {
+        left: -12px;
+        right: auto;
+        border-width: 12px 12px 12px 0;
+        border-color: transparent var(--white) transparent transparent;
+    }
+
+    .timeline-dot {
+        left: 30px;
+    }
+
+    .timeline-content {
+        max-width: 100%;
+        padding: 25px;
+    }
+
+    .timeline-year {
+        font-size: 24px;
+    }
+}
