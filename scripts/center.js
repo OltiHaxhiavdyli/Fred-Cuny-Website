@@ -1,4 +1,3 @@
-// Scroll to top button with progress ring
 const scrollTopBtn = document.getElementById("scrollTopBtn");
 const circle = document.querySelector('.progress-ring__circle');
 
@@ -29,7 +28,6 @@ window.addEventListener("scroll", () => {
         setProgress(scrollPercent);
     }
     
-    // Animate center cards on scroll
     animateCenterCards();
 });
 
@@ -40,7 +38,6 @@ scrollTopBtn.addEventListener("click", () => {
     });
 });
 
-// Animate center cards on scroll
 function animateCenterCards() {
     const centerCards = document.querySelectorAll('.center-card');
     const windowHeight = window.innerHeight;
@@ -51,20 +48,17 @@ function animateCenterCards() {
         if (cardTop < windowHeight * 0.85) {
             setTimeout(() => {
                 card.classList.add('animate');
-            }, index * 150); // Stagger animation
+            }, index * 150);
         }
     });
 }
 
-// Initial check on page load
 document.addEventListener('DOMContentLoaded', () => {
     animateCenterCards();
     
-    // Add a slight delay then animate again to ensure everything is loaded
     setTimeout(() => {
         animateCenterCards();
     }, 100);
 });
 
-// Also animate on resize
 window.addEventListener('resize', animateCenterCards);

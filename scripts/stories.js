@@ -52,7 +52,6 @@ function jumpToStory(index) {
     showStory(index, true);
 }
 
-// Initialize WITHOUT scrolling
 document.addEventListener('DOMContentLoaded', () => {
     showStory(1, false);
 });
