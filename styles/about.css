@@ -74,7 +74,7 @@ a {
 .main-nav {
     display: flex;
     align-items: center;
-    gap: 35px;
+    gap: 40px;
 }
 
 .main-nav > a,
@@ -92,8 +92,9 @@ a {
 .main-nav > a::after {
     content: '';
     position: absolute;
-    bottom: -5px;
-    left: 0;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
     height: 2px;
     background-color: var(--gold);
@@ -127,8 +128,9 @@ a {
 .dropdown-toggle::after {
     content: '';
     position: absolute;
-    bottom: -5px;
-    left: 0;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
     height: 2px;
     background-color: var(--gold);
@@ -318,6 +320,7 @@ a {
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
+    overflow: hidden;
 }
 
 .hero-overlay {
@@ -326,13 +329,14 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(10, 31, 68, 0.6) 0%, rgba(10, 31, 68, 0.4) 100%);
+    background: linear-gradient(135deg, rgba(10, 31, 68, 0.9) 0%, rgba(10, 31, 68, 0.1) 100%);
 }
 
 .hero-content {
     position: relative;
     width: 100%;
     height: 100%;
+    max-width: 1400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -350,21 +354,6 @@ a {
     letter-spacing: 2px;
     text-transform: uppercase;
     text-align: center;
-}
-
-@media (max-width: 768px) {
-    .hero {
-        background-position: 73% center;
-        height: 50vh;
-    }
-
-    .hero-content {
-        padding: 0 30px;
-    }
-
-    .hero-text h1 {
-        font-size: 32px;
-    }
 }
 
 /* ===== Footer ===== */
