@@ -37,7 +37,7 @@ function showStory(storyIndex, scroll = true) {
     });
 
     if (scroll) {
-        const storiesSection = document.querySelector('.stories-section');
+        const storiesSection = document.querySelector('.stories-intro');
         if (storiesSection) {
             storiesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }

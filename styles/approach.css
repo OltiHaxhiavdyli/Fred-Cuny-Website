@@ -445,6 +445,18 @@ a {
     color: var(--navy-blue);
     margin-bottom: 30px;
     text-align: center;
+    position: relative;
+}
+
+.introduction h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
 }
 
 .introduction > .container > p {
