@@ -361,8 +361,7 @@ a {
     }
     
     .menu-toggle:checked ~ .hamburger span:nth-child(1) {
-        /* Move down 9px to the center, THEN rotate */
-        transform: translateY(9px) rotate(45deg);
+        transform: rotate(45deg) translateY(9px);
     }
     
     .menu-toggle:checked ~ .hamburger span:nth-child(2) {
@@ -370,8 +369,7 @@ a {
     }
     
     .menu-toggle:checked ~ .hamburger span:nth-child(3) {
-        /* Move up 9px to the center, THEN rotate */
-        transform: translateY(-9px) rotate(-45deg);
+        transform: rotate(-45deg) translateY(-9px);
     }
 }
 
