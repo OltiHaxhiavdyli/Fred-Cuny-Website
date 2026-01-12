@@ -624,6 +624,27 @@ a {
     clear: both;
 }
 
+/* ===== Mobile Layout: Reorder Text and Image ===== */
+@media (max-width: 768px) {
+    .intro-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bio-image-wrapper {
+        order: 2;
+        
+        float: none;
+        width: 100%;
+        margin: 30px 0 0 0;
+    }
+
+    .lead-text {
+        order: 1;
+        margin-bottom: 15px;
+    }
+}
+
 /* ===== Biography Section ===== */
 .biography-section {
     padding: 100px 0;
