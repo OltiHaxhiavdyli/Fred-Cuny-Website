@@ -320,7 +320,6 @@ a {
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
-    overflow: hidden;
 }
 
 .hero-overlay {
@@ -336,7 +335,6 @@ a {
     position: relative;
     width: 100%;
     height: 100%;
-    max-width: 1400px;
     display: flex;
     align-items: center;
     justify-content: center;
