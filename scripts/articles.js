@@ -12,6 +12,8 @@ class ArticleCarousel {
         this.totalSlides = this.slides.length;
         this.maxIndex = Math.max(0, this.totalSlides - this.slidesPerView);
         
+        this.wheelDebounceTimer = null;
+        
         this.init();
     }
     
@@ -33,6 +35,7 @@ class ArticleCarousel {
         this.updateDots();
         
         this.addTouchSupport();
+        this.addTrackpadSupport();  
     }
     
     createDots() {
@@ -108,6 +111,28 @@ class ArticleCarousel {
             this.createDots();
             this.updateCarousel();
         }
+    }
+
+    addTrackpadSupport() {
+        this.track.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                e.preventDefault();
+
+                if (!this.wheelDebounceTimer) {
+                    if (e.deltaX > 20) {
+                        this.nextSlide();
+                        this.wheelDebounceTimer = setTimeout(() => {
+                            this.wheelDebounceTimer = null;
+                        }, 500);
+                    } else if (e.deltaX < -20) {
+                        this.prevSlide();
+                        this.wheelDebounceTimer = setTimeout(() => {
+                            this.wheelDebounceTimer = null;
+                        }, 500);
+                    }
+                }
+            }
+        }, { passive: false });
     }
     
     addTouchSupport() {
