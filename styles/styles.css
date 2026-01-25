@@ -115,12 +115,32 @@ a {
     right: 0;
     background-color: rgba(10, 31, 68, 0.95);
     backdrop-filter: blur(10px);
-    padding: 10px 40px;
+    padding: 10px 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    position: relative;
+    padding-left: 15px;
+    
+    opacity: 0;
+    animation: slideDownFade 0.8s ease-out forwards;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    width: 3px;
+    height: 40px;
+    background-color: var(--gold);
 }
 
 .logo h1 {
@@ -136,7 +156,7 @@ a {
 .main-nav {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 35px;
 }
 
 .main-nav > a,
@@ -158,7 +178,7 @@ a {
     left: 50%;
     transform: translateX(-50%);
     width: 0;
-    height: 2px;
+    height: 1px;
     background-color: var(--gold);
     transition: width 0.3s ease;
 }
@@ -194,7 +214,7 @@ a {
     left: 50%;
     transform: translateX(-50%);
     width: 0;
-    height: 2px;
+    height: 1px;
     background-color: var(--gold);
     transition: width 0.3s ease;
 }
@@ -251,6 +271,7 @@ a {
     background-color: rgba(212, 175, 55, 0.1);
     color: var(--gold);
     border-left-color: var(--gold);
+    padding-left: 30px;
 }
 
 /* ===== Hamburger Menu ===== */
@@ -560,9 +581,9 @@ a {
     }
 }
 
-/* ===== Cuny Center Section ===== */
+/* ===== Cuny Center Section (Final: No Mobile Hover + Fluid Height) ===== */
 .cuny-center {
-    padding: 100px 0 120px 0;
+    padding: 80px 0 120px 0;
     background-color: var(--navy-blue);
 }
 
@@ -571,58 +592,85 @@ a {
     font-size: 48px;
     color: var(--gold);
     text-align: center;
-    margin-top: 0px;
-    margin-bottom: 30px;
+    margin-top: 0;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
 }
 
 .center-split {
-    position: relative;
     display: flex;
+    align-items: stretch;
     height: 600px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
     overflow: hidden;
 }
 
 .split-side {
     position: relative;
     flex: 1;
+    height: 100%;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     overflow: hidden;
-    transition: all 0.5s ease;
+    cursor: pointer;
+    border-right: 2px solid var(--gold);
+}
+
+.split-side:last-child {
+    border-right: none;
 }
 
 .split-side img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background-position: right;
-    transition: all 0.5s ease;
+    transition: transform 0.8s ease;
+    filter: brightness(0.8);
 }
 
+/* ===== The Overlay ===== */
 .split-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(10, 31, 68, 0.95);
+    
+    background-color: rgba(10, 31, 68, 0.25); 
+    background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent 50%);
+    
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 140px; 
     align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    padding: 60px;
+    padding-left: 20px; 
+    padding-right: 20px;
+    
+    opacity: 1; 
+    transition: background-color 0.4s ease;
+    z-index: 2;
 }
 
+/* ===== Content Styling ===== */
 .split-content {
     text-align: center;
-    transform: translateY(20px);
-    transition: transform 0.5s ease;
+    width: 100%;
+    max-width: 95%; 
 }
 
 .split-content h3 {
     font-family: var(--font-heading);
-    font-size: 36px;
+    font-size: 32px; 
     color: var(--gold);
     margin-bottom: 20px;
+    text-shadow: 0 4px 10px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.8);
+    
+    transform: translateY(0);
+    transition: transform 0.5s ease;
 }
 
 .split-content p {
@@ -630,94 +678,154 @@ a {
     line-height: 1.8;
     color: var(--white);
     margin-bottom: 30px;
+    
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
 }
 
-.split-divider {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-    transform: translateX(-50%) skewX(-5deg);
-    z-index: 10;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+/* ===== BUTTON STYLE (Solid Gold) ===== */
+.split-content .btn {
+    background-color: var(--gold);
+    color: var(--navy-blue);
+    border: 2px solid var(--gold);
+    display: inline-block;
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    
+    opacity: 0; 
+    transform: translateY(20px);
+    transition: all 0.3s ease;
 }
 
-/* Hover Effects */
-.split-side:hover .split-overlay {
-    opacity: 1;
+.split-content .btn::after {
+    display: none;
 }
 
-.split-side:hover .split-content {
-    transform: translateY(0);
+.split-content .btn:hover {
+    background-color: var(--gold-light);
+    border-color: var(--gold-light);
+    transform: translateY(-2px);
+    color: var(--navy-blue);
 }
 
-/* .left-side:hover ~ .right-side img {
-    filter: brightness(0.3);
-} */
-
-.right-side:hover img {
-    filter: brightness(1);
-}
-
-.left-side:hover img {
-    filter: brightness(1);
-}
-
+/* ===== Desktop Hover Interactions ONLY ===== */
+/* These rules will be overridden in the Mobile media query below */
 .split-side:hover {
-    flex: 1;
+    flex: 1.5; 
 }
 
-.left-side img {
-    object-position: 70% center;
+.split-side:hover .split-overlay {
+    background-color: rgba(10, 31, 68, 0.95);
+    background-image: none;
 }
 
+.split-side:hover .split-content p,
+.split-side:hover .split-content .btn {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.split-side:hover img {
+    transform: scale(1.005); 
+}
+
+/* ===== Mobile Responsiveness (No Hover + Fluid Height) ===== */
 @media (max-width: 992px) {
+    .cuny-center {
+        padding: 60px 0 80px 0;
+    }
 
     .cuny-center-title {
-        font-size: 35px;
+        font-size: 36px;
+        margin-bottom: 30px;
     }
 
     .center-split {
         flex-direction: column;
         height: auto;
+        box-shadow: none;
     }
-    
+
     .split-side {
-        height: 400px;
-    }
-    
-    .split-divider {
-        left: 0;
-        top: 50%;
+        height: auto; 
+        min-height: 400px;
         width: 100%;
-        height: 4px;
-        transform: translateY(-50%) skewY(-2deg);
+        border-right: none;
+        border-bottom: 4px solid var(--gold); 
+        flex: none; 
+        display: flex;
+        flex-direction: column;
     }
     
-    .left-side:hover ~ .right-side img {
-        filter: brightness(1);
-    }
-    
-    .right-side:hover img {
-        filter: brightness(1);
-    }
-
+    /* Image Position */
     .split-side img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
         width: 100%;
-        height: 620px;
-        object-fit: cover;
-        transition: all 0.5s ease;
+        z-index: 0;
     }
-
+    
+    .split-side:last-child {
+        border-bottom: none;
+    }
+    
+    /* Overlay Structure */
+    .split-overlay {
+        position: relative; 
+        top: auto; left: auto; right: auto; bottom: auto;
+        justify-content: center;
+        padding: 60px 20px;
+        background-color: rgba(10, 31, 68, 0.9); 
+        background-image: none;
+    }
+    
+    /* Content Always Visible */
+    .split-content {
+        max-width: 100%;
+        transform: translateY(0);
+    }
+    
     .split-content h3 {
-        font-size: 29px;
+        font-size: 26px; 
+        text-shadow: none;
+        margin-bottom: 15px;
+        transform: translateY(0);
     }
 
     .split-content p {
-        font-size: 18px;
-        line-height: 1.4;
+        font-size: 15px;
+        opacity: 1;
+        transform: translateY(0);
+        margin-bottom: 25px;
+    }
+    
+    .split-content .btn {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* === DISABLE HOVER EFFECTS ON MOBILE === */
+    /* This overrides the desktop hover rules so nothing moves on tap */
+    .split-side:hover {
+        flex: none;
+    }
+
+    .split-side:hover img {
+        transform: none; /* No Zoom */
+    }
+
+    .split-side:hover .split-overlay {
+        background-color: rgba(10, 31, 68, 0.9); /* Keep the same static blue */
     }
 }
 
@@ -1097,5 +1205,40 @@ a {
         bottom: 20px;
         right: 20px;
         opacity: 0.85;
+    }
+}
+
+/* ===== Navbar Loading Animation ===== */
+@keyframes slideDownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-30px)
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    opacity: 0;
+    animation: slideDownFade 0.8s ease-out forwards;
+}
+
+/* 3. Animate the Desktop Links */
+.main-nav {
+    opacity: 0;
+    animation: slideDownFade 0.8s ease-out forwards;
+}
+
+@media (max-width: 992px) {
+    .main-nav {
+        opacity: 1; 
+        animation: none;
+    }
+
+    .hamburger {
+        opacity: 0;
+        animation: slideDownFade 0.8s ease-out 0.2s forwards;
     }
 }

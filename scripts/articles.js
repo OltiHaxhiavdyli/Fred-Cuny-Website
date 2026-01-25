@@ -222,4 +222,42 @@ document.addEventListener('DOMContentLoaded', () => {
             byCarousel.nextSlide();
         }
     });
+
+    const modal = document.getElementById('imageModal');
+    const triggerImg = document.getElementById('milosevic-trigger');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.close-modal');
+
+    if (triggerImg) {
+        triggerImg.addEventListener('click', function() {
+            modal.style.display = "block";
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+            modalImg.src = this.src;
+        });
+    }
+
+    function closeModal() {
+        modal.classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = "none";
+        }, 300);
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape" && modal.classList.contains('show')) {
+            closeModal();
+        }
+    });
 });

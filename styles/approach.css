@@ -115,12 +115,32 @@ a {
     right: 0;
     background-color: rgba(10, 31, 68, 0.95);
     backdrop-filter: blur(10px);
-    padding: 10px 40px;
+    padding: 10px 5%  10px 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    position: relative;
+    padding-left: 15px;
+    
+    opacity: 1;
+    animation: slideDownFade 0.8s ease-out forwards;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    width: 3px;
+    height: 40px;
+    background-color: var(--gold);
 }
 
 .logo h1 {
@@ -136,7 +156,7 @@ a {
 .main-nav {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 35px;
 }
 
 .main-nav > a,
@@ -158,7 +178,7 @@ a {
     left: 50%;
     transform: translateX(-50%);
     width: 0;
-    height: 2px;
+    height: 1px;
     background-color: var(--gold);
     transition: width 0.3s ease;
 }
@@ -194,7 +214,7 @@ a {
     left: 50%;
     transform: translateX(-50%);
     width: 0;
-    height: 2px;
+    height: 1px;
     background-color: var(--gold);
     transition: width 0.3s ease;
 }
@@ -251,6 +271,7 @@ a {
     background-color: rgba(212, 175, 55, 0.1);
     color: var(--gold);
     border-left-color: var(--gold);
+    padding-left: 30px;
 }
 
 /* ===== Hamburger Menu ===== */
@@ -280,7 +301,7 @@ a {
     }
     
     .logo h1 {
-        font-size: 24px;
+        font-size: 28px;
     }
     
     .hamburger {
