@@ -381,7 +381,7 @@ a {
 @media (max-width: 768px) {
     .hero {
         background-position: 73% center;
-        height: 50vh;
+        height: 55vh;
     }
 
     .hero-content {

@@ -301,7 +301,7 @@ a {
     }
     
     .logo h1 {
-        font-size: 28px;
+        font-size: 34px;
     }
     
     .hamburger {
@@ -1093,12 +1093,12 @@ a {
 /* ===== Additional Mobile Responsiveness ===== */
 @media (max-width: 576px) {
     .logo {
-        left: 20px;
+        left: 0px;
     }
     
-    .logo h1 {
+    /* .logo h1 {
         font-size: 36px;
-    }
+    } */
     
     .hamburger {
         right: 20px;
