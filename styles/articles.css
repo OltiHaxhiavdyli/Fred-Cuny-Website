@@ -1092,3 +1092,13 @@ a {
 #milosevic-trigger:hover {
     transform: scale(1.05);
 }
+
+/* Add this class to the card-image div when no image is desired */
+.card-image.no-image {
+    background-color: var(--navy-blue);
+}
+
+/* Ensures no empty image icons or broken links appear */
+.card-image.no-image img {
+    display: none;
+}
