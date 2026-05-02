@@ -1,5 +1,5 @@
 let currentStory = 1;
-const totalStories = 3;
+const totalStories = 5;
 
 function showStory(storyIndex, scroll = true) {
     if (storyIndex < 1) storyIndex = 1;
