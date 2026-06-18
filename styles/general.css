@@ -359,6 +359,7 @@ a {
 @media (max-width: 768px) {
     .hero {
         background-position: 73% center;
+        background-attachment: scroll;
         height: 50vh;
     }
 
