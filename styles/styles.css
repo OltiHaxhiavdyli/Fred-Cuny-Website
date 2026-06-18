@@ -14,7 +14,7 @@
     --off-white: #f8f9fa;
     --text-gray: #6c757d;
     --text-dark: #2c3e50;
-    
+
     /* Typography */
     --font-heading: 'Playfair Display', serif;
     --font-cursive: 'Cormorant Garamond', serif;
@@ -126,7 +126,7 @@ a {
 .logo {
     position: relative;
     padding-left: 15px;
-    
+
     opacity: 0;
     animation: slideDownFade 0.8s ease-out forwards;
 }
@@ -137,7 +137,7 @@ a {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    
+
     width: 3px;
     height: 40px;
     background-color: var(--gold);
@@ -299,15 +299,15 @@ a {
     .header {
         padding: 15px 20px;
     }
-    
+
     .logo h1 {
         font-size: 34px;
     }
-    
+
     .hamburger {
         display: flex;
     }
-    
+
     .main-nav {
         position: fixed;
         top: 0;
@@ -322,19 +322,19 @@ a {
         transition: right 0.4s ease;
         z-index: 999;
     }
-    
-    .main-nav > a,
+
+    .main-nav>a,
     .dropdown {
         width: 100%;
         padding: 20px 40px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
-    .main-nav > a::after,
+
+    .main-nav>a::after,
     .dropdown-toggle::after {
         display: none;
     }
-    
+
     .dropdown-menu {
         position: static;
         transform: none;
@@ -346,15 +346,15 @@ a {
         overflow: hidden;
         transition: max-height 0.3s ease;
     }
-    
+
     .dropdown-menu::before {
         display: none;
     }
-    
+
     .dropdown:hover .dropdown-menu {
         max-height: 300px;
     }
-    
+
     .dropdown-menu a {
         padding: 14px 40px 14px 22px;
         position: relative;
@@ -377,22 +377,22 @@ a {
         color: var(--gold);
         background: none;
     }
-    
-    .menu-toggle:checked ~ .main-nav {
+
+    .menu-toggle:checked~.main-nav {
         right: 0;
     }
-    
-    .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+
+    .menu-toggle:checked~.hamburger span:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
         transform-origin: center;
     }
 
-    .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    .menu-toggle:checked~.hamburger span:nth-child(2) {
         opacity: 0;
         transform: scale(0);
     }
 
-    .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    .menu-toggle:checked~.hamburger span:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
         transform-origin: center;
     }
@@ -403,14 +403,32 @@ a {
     position: relative;
     width: 100%;
     height: 100vh;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: url('../images/2017_winter_zins2_photo1.gif');
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
-    overflow: hidden;
+    z-index: 0;
+}
+
+/* Fix for Safari background-attachment: fixed scaling and blurriness bug */
+@supports (-webkit-hyphens: none) {
+    .hero::before {
+        background-attachment: scroll;
+        background-position: center top;
+    }
 }
 
 .hero-overlay {
+    z-index: 1;
     position: absolute;
     top: 0;
     left: 0;
@@ -434,13 +452,14 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 40px;
+    z-index: 2;
 }
 
 .hero-text {
     position: relative;
-    border-left: 5px solid var(--gold); 
+    border-left: 5px solid var(--gold);
     padding-left: 35px;
-    
+
     /* Animation: Slide up */
     animation: fadeInUp 1.2s ease-out forwards;
     opacity: 0;
@@ -449,12 +468,12 @@ a {
 
 .hero-text h1 {
     font-family: var(--font-heading);
-    font-size: 90px; 
+    font-size: 90px;
     line-height: 0.9;
     font-weight: 700;
     color: var(--white);
     margin-bottom: 15px;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .hero-text p {
@@ -533,7 +552,7 @@ a {
         grid-template-columns: 1fr;
         gap: 50px;
     }
-    
+
     .about-image img {
         height: 400px;
     }
@@ -556,7 +575,7 @@ a {
     margin-bottom: 30px;
 }
 
-.approach-content > p {
+.approach-content>p {
     font-size: 16px;
     line-height: 1.8;
     color: var(--text-gray);
@@ -606,7 +625,7 @@ a {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
     overflow: hidden;
 }
 
@@ -639,19 +658,19 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    
-    background-color: rgba(10, 31, 68, 0.25); 
-    background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent 50%);
-    
+
+    background-color: rgba(10, 31, 68, 0.25);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 50%);
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 140px; 
+    padding-top: 140px;
     align-items: center;
-    padding-left: 20px; 
+    padding-left: 20px;
     padding-right: 20px;
-    
-    opacity: 1; 
+
+    opacity: 1;
     transition: background-color 0.4s ease;
     z-index: 2;
 }
@@ -660,16 +679,16 @@ a {
 .split-content {
     text-align: center;
     width: 100%;
-    max-width: 95%; 
+    max-width: 95%;
 }
 
 .split-content h3 {
     font-family: var(--font-heading);
-    font-size: 32px; 
+    font-size: 32px;
     color: var(--gold);
     margin-bottom: 20px;
-    text-shadow: 0 4px 10px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.8);
-    
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 1), 0 0 30px rgba(0, 0, 0, 0.8);
+
     transform: translateY(0);
     transition: transform 0.5s ease;
 }
@@ -679,7 +698,7 @@ a {
     line-height: 1.8;
     color: var(--white);
     margin-bottom: 30px;
-    
+
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.4s ease;
@@ -699,8 +718,8 @@ a {
     letter-spacing: 1px;
     cursor: pointer;
     text-decoration: none;
-    
-    opacity: 0; 
+
+    opacity: 0;
     transform: translateY(20px);
     transition: all 0.3s ease;
 }
@@ -719,7 +738,7 @@ a {
 /* ===== Desktop Hover Interactions ONLY ===== */
 /* These rules will be overridden in the Mobile media query below */
 .split-side:hover {
-    flex: 1.5; 
+    flex: 1.5;
 }
 
 .split-side:hover .split-overlay {
@@ -735,7 +754,7 @@ a {
 }
 
 .split-side:hover img {
-    transform: scale(1.005); 
+    transform: scale(1.005);
 }
 
 /* ===== Mobile Responsiveness (No Hover + Fluid Height) ===== */
@@ -756,16 +775,16 @@ a {
     }
 
     .split-side {
-        height: auto; 
+        height: auto;
         min-height: 400px;
         width: 100%;
         border-right: none;
-        border-bottom: 4px solid var(--gold); 
-        flex: none; 
+        border-bottom: 4px solid var(--gold);
+        flex: none;
         display: flex;
         flex-direction: column;
     }
-    
+
     /* Image Position */
     .split-side img {
         position: absolute;
@@ -775,29 +794,32 @@ a {
         width: 100%;
         z-index: 0;
     }
-    
+
     .split-side:last-child {
         border-bottom: none;
     }
-    
+
     /* Overlay Structure */
     .split-overlay {
-        position: relative; 
-        top: auto; left: auto; right: auto; bottom: auto;
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
         justify-content: center;
         padding: 60px 20px;
-        background-color: rgba(10, 31, 68, 0.9); 
+        background-color: rgba(10, 31, 68, 0.9);
         background-image: none;
     }
-    
+
     /* Content Always Visible */
     .split-content {
         max-width: 100%;
         transform: translateY(0);
     }
-    
+
     .split-content h3 {
-        font-size: 26px; 
+        font-size: 26px;
         text-shadow: none;
         margin-bottom: 15px;
         transform: translateY(0);
@@ -809,7 +831,7 @@ a {
         transform: translateY(0);
         margin-bottom: 25px;
     }
-    
+
     .split-content .btn {
         opacity: 1;
         transform: translateY(0);
@@ -822,11 +844,13 @@ a {
     }
 
     .split-side:hover img {
-        transform: none; /* No Zoom */
+        transform: none;
+        /* No Zoom */
     }
 
     .split-side:hover .split-overlay {
-        background-color: rgba(10, 31, 68, 0.9); /* Keep the same static blue */
+        background-color: rgba(10, 31, 68, 0.9);
+        /* Keep the same static blue */
     }
 }
 
@@ -967,7 +991,7 @@ a {
     transform: translateX(5px);
 } */
 
-    /* Responsiveness */
+/* Responsiveness */
 @media (max-width: 992px) {
     .cards-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -978,7 +1002,7 @@ a {
     .cards-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .learn-more-header h2 {
         font-size: 36px;
     }
@@ -1096,41 +1120,41 @@ a {
     .logo {
         left: 0px;
     }
-    
+
     /* .logo h1 {
         font-size: 36px;
     } */
-    
+
     .hamburger {
         right: 20px;
     }
-    
+
     .hero-content {
         padding: 20px;
     }
-    
+
     .about {
         padding: 60px 0;
     }
-    
+
     .about-text h2,
     .approach-content h2,
     .learn-more-header h2 {
         font-size: 36px;
     }
-    
+
     .approach {
         padding: 60px 0;
     }
-    
+
     .cuny-center {
         padding: 60px 0;
     }
-    
+
     .learn-more {
         padding: 60px 0;
     }
-    
+
     .about-image img {
         box-shadow: 10px 10px 0 var(--gold);
     }
@@ -1143,8 +1167,8 @@ a {
     right: 30px;
     width: 50px;
     height: 50px;
-    background-color: var(--gold); 
-    color: var(--navy-blue); 
+    background-color: var(--gold);
+    color: var(--navy-blue);
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -1161,7 +1185,8 @@ a {
 }
 
 #scrollTopBtn:hover {
-    background-color: var(--gold-light);;
+    background-color: var(--gold-light);
+    ;
     transform: translateY(-3px);
 }
 
@@ -1215,6 +1240,7 @@ a {
         opacity: 0;
         transform: translateY(-30px)
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1234,7 +1260,7 @@ a {
 
 @media (max-width: 992px) {
     .main-nav {
-        opacity: 1; 
+        opacity: 1;
         animation: none;
     }
 
